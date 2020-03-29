@@ -1,0 +1,7 @@
+source venv/bin/activate
+
+flask run 			# this will start flask on localhost
+flask run --host 0.0.0.0  	#this will start flask available on the network
+
+
+flask shell			# this starts a shell importing the app
