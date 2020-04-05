@@ -1,4 +1,4 @@
-2020-04-01 16:23:32,186 ERROR: Exception on / [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+2020-04-04 19:45:38,659 ERROR: Exception on /index [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,47 +8,90 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1947, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2241, in preprocess_request
-    rv = func()
-  File "/home/pi/Desktop/microblog/app/routes.py", line 12, in before_request
-    if current_user.is_authenticated:
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/werkzeug/local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
-    return self.__local()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 346, in _get_user
-    current_app.login_manager._load_user()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 318, in _load_user
-    user = self._user_callback(user_id)
-  File "/home/pi/Desktop/microblog/app/models.py", line 63, in load_user
-    return User.query.get(int(id))
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py", line 517, in __get__
-    mapper = orm.class_mapper(type)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/base.py", line 444, in class_mapper
-    mapper = _inspect_mapped_class(class_, configure=configure)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/base.py", line 423, in _inspect_mapped_class
-    mapper._configure_all()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 1337, in _configure_all
-    configure_mappers()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 3255, in configure_mappers
-    mapper._post_configure_properties()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 1950, in _post_configure_properties
-    prop.init()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
-    self.do_init()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 1941, in do_init
-    super(RelationshipProperty, self).do_init()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/interfaces.py", line 572, in do_init
-    self.strategy = self._get_strategy(self.strategy_key)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/interfaces.py", line 542, in _get_strategy
-    cls = self._strategy_lookup(self, *key)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/interfaces.py", line 621, in _strategy_lookup
-    key,
-sqlalchemy.orm.exc.LoaderStrategyException: Can't find strategy (('lazy', 'dyanmic'),) for User.followed
-2020-04-02 10:12:34,711 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-02 10:49:55,107 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-02 10:53:14,589 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/pi/Desktop/microblog/app/routes.py", line 30, in index
+    return render_template("index.html", title='Home Page', form=form, posts=posts)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/pi/Desktop/microblog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/pi/Desktop/microblog/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/pi/Desktop/microblog/app/templates/index.html", line 18, in block "content"
+    {% for post in posts %}
+TypeError: 'Pagination' object is not iterable
+2020-04-04 19:49:59,593 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
+2020-04-04 19:50:08,443 ERROR: Exception on /index [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/pi/Desktop/microblog/app/routes.py", line 30, in index
+    return render_template("index.html", title='Home Page', form=form, posts=posts)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/pi/Desktop/microblog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/pi/Desktop/microblog/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/pi/Desktop/microblog/app/templates/index.html", line 18, in block "content"
+    {% for post in posts %}
+TypeError: 'Pagination' object is not iterable
+2020-04-04 19:55:10,512 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
+2020-04-04 20:08:50,066 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
+2020-04-04 20:09:00,239 ERROR: Exception on /index [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/pi/Desktop/microblog/app/routes.py", line 34, in index
+    return render_template("index.html", title='Home Page', form=form, posts=posts.items, next_url=next+url, prev_url=prev_url)
+NameError: name 'url' is not defined
+2020-04-04 20:09:44,896 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
+2020-04-05 09:51:55,371 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
+2020-04-05 10:00:04,298 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
+2020-04-05 11:08:43,859 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
+2020-04-05 11:13:02,061 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
