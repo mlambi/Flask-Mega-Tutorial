@@ -6,7 +6,8 @@ flask run --host 0.0.0.0  	#this will start flask available on the network
 
 flask shell			# this starts a shell importing the app
 
-
+export MAIL_SERVER=localhost
+export MAIL-_PORT=8025
 python -m smtpd -n -c DebuggingServer localhost:8025
 
 

@@ -1,4 +1,4 @@
-2020-04-04 19:45:38,659 ERROR: Exception on /index [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+2020-04-06 12:38:23,314 ERROR: Exception on /reset_password_request [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,10 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/pi/Desktop/microblog/app/routes.py", line 30, in index
-    return render_template("index.html", title='Home Page', form=form, posts=posts)
+  File "/home/pi/Desktop/microblog/app/routes.py", line 106, in reset_password_request
+    return render_template('reset_password_request.html', title='Reset Password', form=form)
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
     ctx.app,
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
@@ -26,15 +24,13 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "/home/pi/Desktop/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/pi/Desktop/microblog/app/templates/base.html", line 31, in top-level template code
-    {% block content %}{% endblock %}
-  File "/home/pi/Desktop/microblog/app/templates/index.html", line 18, in block "content"
-    {% for post in posts %}
-TypeError: 'Pagination' object is not iterable
-2020-04-04 19:49:59,593 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-04 19:50:08,443 ERROR: Exception on /index [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+  File "/home/pi/Desktop/microblog/app/templates/reset_password_request.html", line 1, in top-level template code
+    {% extends base.html %}
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'base' is undefined
+2020-04-06 12:39:29,972 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:47]
+2020-04-06 12:40:18,182 ERROR: Exception on /reset_password_request [POST] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -48,76 +44,15 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/pi/Desktop/microblog/app/routes.py", line 30, in index
-    return render_template("index.html", title='Home Page', form=form, posts=posts)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/home/pi/Desktop/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/pi/Desktop/microblog/app/templates/base.html", line 31, in top-level template code
-    {% block content %}{% endblock %}
-  File "/home/pi/Desktop/microblog/app/templates/index.html", line 18, in block "content"
-    {% for post in posts %}
-TypeError: 'Pagination' object is not iterable
-2020-04-04 19:55:10,512 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-04 20:08:50,066 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-04 20:09:00,239 ERROR: Exception on /index [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/pi/Desktop/microblog/app/routes.py", line 34, in index
-    return render_template("index.html", title='Home Page', form=form, posts=posts.items, next_url=next+url, prev_url=prev_url)
-NameError: name 'url' is not defined
-2020-04-04 20:09:44,896 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-05 09:51:55,371 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-05 10:00:04,298 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-05 11:08:43,859 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-05 11:13:02,061 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-05 11:28:19,272 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:44]
-2020-04-05 12:41:58,967 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:47]
-2020-04-05 12:45:34,263 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:47]
-2020-04-06 10:08:52,296 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:47]
-2020-04-06 10:11:01,777 ERROR: Exception on /reset_password_request [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/pi/Desktop/microblog/app/routes.py", line 155, in reset_password_request
-    form = ResetPasswordRequestForm()
-NameError: name 'ResetPasswordRequestForm' is not defined
-2020-04-06 10:17:15,184 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:47]
-2020-04-06 10:17:24,387 ERROR: Exception on /reset_password_request [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+  File "/home/pi/Desktop/microblog/app/routes.py", line 103, in reset_password_request
+    send_password_reset_email(user)
+  File "/home/pi/Desktop/microblog/app/email.py", line 15, in send_password_reset_email
+    token = user.get_reset_password_token()
+  File "/home/pi/Desktop/microblog/app/models.py", line 63, in get_reset_password_token
+    return jwt.encode(
+NameError: name 'jwt' is not defined
+2020-04-06 12:45:16,037 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:47]
+2020-04-06 12:45:56,735 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6MiwiZXhwIjoxNTg2MTkyMTI1LjkzMTAwOX0.5IpzsYRYwtI-OGGisGRS64imTxQQRX6kx0zA-u2nM60 [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -128,3 +63,44 @@ Traceback (most recent call last):
   File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2097, in make_response
     "The view function did not return a valid response. The"
 TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-04-06 13:20:33,458 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6MiwiZXhwIjoxNTg2MTkyMTI1LjkzMTAwOX0.5IpzsYRYwtI-OGGisGRS64imTxQQRX6kx0zA-u2nM60 [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2097, in make_response
+    "The view function did not return a valid response. The"
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-04-06 13:23:28,352 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:47]
+2020-04-11 14:35:30,913 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:49]
+2020-04-11 14:37:11,574 ERROR: Exception on /favicon.ico [GET] [in /home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1925, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1907, in raise_routing_exception
+    raise request.routing_exception
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/home/pi/Desktop/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1743, in handle_http_exception
+    return handler(e)
+  File "/home/pi/Desktop/microblog/app/errors.py", line 6, in not_found_error
+    return render_tempate('404.html'), 404
+NameError: name 'render_tempate' is not defined
