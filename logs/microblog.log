@@ -113,3 +113,5 @@ Traceback (most recent call last):
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['uername']. Did you forget to specify values ['username']?
 2020-04-11 14:42:29,806 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:49]
+2020-05-11 12:29:57,169 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:51]
+2020-05-11 12:30:26,667 INFO: Microblog startup [in /home/pi/Desktop/microblog/app/__init__.py:51]
